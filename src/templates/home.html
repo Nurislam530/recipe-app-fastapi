@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script>
+    const searchForRecipe = () => {
+        const searchInputValue = document.getElementById("recipe_search").value;
+        if (searchInputValue === '') {
+            window.location.href = `/`
+        } else {
+            window.location.href = `/search=${searchInputValue}`
+        }
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+        
+        <div class="hero-container">
+            <img src="https://eda.ru/img/eda/c1000x660/s1.eda.ru/StaticContent/Photos/c/b7/cb7a9415b46f4b1296ba5a34da1b6548.jpg">
+            <div class="hero-header-1">
+                <div class="hero-header-2">
+                    <li>
+                        <a href="/media" prefetch="false">
+                            Идеи
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/media/vopros" prefetch="false">
+                            Вопрос
+                        </a>
+                    </li>
+                </div>
+                <a href="/media/vopros/kak-pozharit-luk-na-skovorode-pravilno" prefetch="false">
+                    <h3 title="Как пожарить лук на сковороде правильно" class="hero-content-1">Как пожарить лук на сковороде правильно</h3>
+                    <span title="Как пожарить лук на сковороде правильно" class="hero-content-2">Как нарезать, на каком масле и сколько времени жарить, чтобы лук получился идеальным</span>
+                </a>
+                <div class="black-thing"></div>
+            </div>
+            <div class="search-container">
+                <div>
+                    <input type="text" placeholder="Начните искать рецепт, историю, ингредиент..." id="recipe_search"">
+                    <button onclick="searchForRecipe()">НАЙТИ</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container">
+            {% for Recipe in recipes %}
+            <a href="/" class="content-body">
+                <img src="../static/images/scale_1200.jpg" alt="" srcset="">
+                <div class="content-text">
+                    <div class="">{{Recipe.name}}</div>
+<!--                    <div class="">{{', '.join(Recipe.ingredients)}}</div>-->
+                    <div class="content-description">{{Recipe.description[:40] + '...'}}</div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}
