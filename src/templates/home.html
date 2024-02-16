@@ -47,7 +47,7 @@
 
         <div class="content-container">
             {% for Recipe in recipes %}
-            <a href="/" class="content-body">
+            <a href="/recipe/{{ Recipe.id }}" class="content-body">
                 <img src="../static/images/scale_1200.jpg" alt="" srcset="">
                 <div class="content-text">
                     <div class="">{{Recipe.name}}</div>

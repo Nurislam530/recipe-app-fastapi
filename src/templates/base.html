@@ -18,8 +18,12 @@
                 <img src="../static/images/food-icon-design-vector-png_120564.jpg">
                 Рецепты
             </a>
-            <a href="/" class="nav-link-2">Добавить рецепт</a>
-            <a href="/login" class="nav-link-3">Мой аккаунт</a>
+            <a href="/recipe/add" class="nav-link-2">Добавить рецепт</a>
+            {% if current_user %}
+            <a href="/auth/logout" class="ml-16 text-gray-400">{{ current_user["username"] }}</a>
+            {% else %}
+            <a href="/auth/login" class="nav-link-3">Мой аккаунт</a>
+            {% endif %}
         </div>
     </nav>
     <main>

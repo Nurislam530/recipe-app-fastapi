@@ -24,7 +24,5 @@ class User(Base):
     registered_at: Mapped[str] = mapped_column(TIMESTAMP, default=datetime.now())
     role_id: Mapped[int] = mapped_column(ForeignKey("role.id"))
     email: Mapped[str] = mapped_column(nullable=False)
-    hashed_password: Mapped[str] = mapped_column(nullable=False)
-    is_active: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
-    is_superuser: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
-    is_verified: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
+    password: Mapped[str] = mapped_column(nullable=False)
+

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-sm my-0 mx-auto pt-32">
+
+
+    <h1 class="text-center capitalize mb-4">{{ msg }}</h1>
+
+    <p class="mb-6 text-center text-lg">
+       Заполните эту форму для того что бы добавить ваш рецепт в наш сайт
+    </p>
+
+    <form action="/recipe/add" method="post">
+        <div class="flex flex-col items-center">
+            <input type="text" name="name" placeholder="Enter name of the recipe" id="recipe_search" class="w-full p-2 rounded-lg border-2 border-slate-500 mb-2">
+            <input type="text" name="ingredients" placeholder="Enter ingredients" id="recipe_search" class="w-full p-2 rounded-lg border-2 border-slate-500 mb-2">
+            <input type="text" name="description" placeholder="Cooking description" id="recipe_search" class="w-full p-2 rounded-lg border-2 border-slate-500 mb-2">
+            <button type="submit" class="ml-3 py-1 px-4 rounded-lg bg-amber-300 mb-2">Добавить</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
